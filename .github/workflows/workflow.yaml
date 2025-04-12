@@ -1,0 +1,29 @@
+name: Continuos Integration
+
+on:
+   pull_request:
+    branches:
+      ['develop', 'main']
+
+jobs:
+  continuous-integration:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: checkout-code
+            uses: actions/checkout@v3
+
+          - name: Set up mvn and java
+            uses: actions/setup-confg@v2
+            with:
+            maven-version: 3.X
+            java-version: 17.X
+
+          - name: Install dependencies
+            run: |
+              mvn install
+              mvn compile
+
+          - name: Run tests
+            run: |
+              mvn test
