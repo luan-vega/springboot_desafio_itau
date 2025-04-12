@@ -1,29 +1,24 @@
-name: Continuos Integration
-
+name: Continuous Integration
 on:
-   pull_request:
+  pull_request:
     branches:
-      ['develop', 'main']
-
+      - develop
+      - main
 jobs:
   continuous-integration:
-        runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-        steps:
-          - name: checkout-code
-            uses: actions/checkout@v3
+      - name: Set up JDK 17 and Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
 
-          - name: Set up mvn and java
-            uses: actions/setup-confg@v2
-            with:
-            maven-version: 3.X
-            java-version: 17.X
-
-          - name: Install dependencies
-            run: |
-              mvn install
-              mvn compile
-
-          - name: Run tests
-            run: |
-              mvn test
+      - name: Build with Maven
+        run: |
+          mvn --batch-mode --update-snapshots verify
