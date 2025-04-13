@@ -18,13 +18,5 @@ jobs:
               java-version: '17'
               distribution: 'temurin'
               cache: maven
-          - name: Install dependencies
-            run: |
-              mvn install
-              mvn compile
-
-          - name: Run tests
-            run: |
-              mvn test
-              
-              
+          - name: Build with Maven
+            run: mvn --batch-mode --update-snapshots verify
