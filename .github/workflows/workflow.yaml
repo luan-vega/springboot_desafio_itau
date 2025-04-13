@@ -10,14 +10,14 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-          - name: checkout-code
-            uses: actions/checkout@v3
-
-          - name: Set up mvn and java
-            uses: actions/setup-confg@v2
+          - name: Checkout Code
+          - uses: actions/checkout@v4
+          - name: Set up JDK 17 and Maven
+            uses: actions/setup-java@v4
             with:
-              maven-version: 3.
-
+              java-version: '17'
+              distribution: 'temurin'
+              cache: maven
           - name: Install dependencies
             run: |
               mvn install
@@ -26,3 +26,5 @@ jobs:
           - name: Run tests
             run: |
               mvn test
+              
+              
