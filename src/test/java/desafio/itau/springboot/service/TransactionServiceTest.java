@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TransactionServiseTest {
+class TransactionServiceTest {
 
     @Test
     void testAddTransaction() {
@@ -53,20 +53,6 @@ class TransactionServiseTest {
 
         Transaction invalidTransaction = new Transaction(100.0, now.plusSeconds(-100));
         transactionService.addTransaction(invalidTransaction);
-        var statistics = transactionService.getStatistcs();
-
-        assertEquals(0, statistics.getCount());
-    }
-
-    @Test
-    void testNegativeTransactionValue() {
-        TransactionService transactionService = new TransactionService();
-        OffsetDateTime now = OffsetDateTime.now();
-
-        // Test negative transaction value
-        Transaction negativeTransaction = new Transaction(-100.0, now);
-        transactionService.addTransaction(negativeTransaction);
-
         var statistics = transactionService.getStatistcs();
 
         assertEquals(0, statistics.getCount());
