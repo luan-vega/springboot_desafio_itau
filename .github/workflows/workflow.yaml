@@ -1,14 +1,11 @@
 name: Continuos Integration
-
 on:
    pull_request:
     branches:
       ['develop', 'main']
-
 jobs:
   continuous-integration:
         runs-on: ubuntu-latest
-
         steps:
           - name: Checkout Code
           - uses: actions/checkout@v4
@@ -17,6 +14,5 @@ jobs:
             with:
               java-version: '17'
               distribution: 'temurin'
-              cache: maven
           - name: Build with Maven
             run: mvn --batch-mode --update-snapshots verify
