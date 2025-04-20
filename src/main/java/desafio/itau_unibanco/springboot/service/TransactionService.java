@@ -1,6 +1,6 @@
-package desafio.itau.springboot.service;
+package desafio.itau_unibanco.springboot.service;
 
-import desafio.itau.springboot.model.Transaction;
+import desafio.itau_unibanco.springboot.model.Transaction;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;

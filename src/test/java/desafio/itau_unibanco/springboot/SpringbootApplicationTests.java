@@ -1,4 +1,4 @@
-package desafio.itau.springboot;
+package desafio.itau_unibanco.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
