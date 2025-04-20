@@ -1,7 +1,7 @@
-package desafio.itau.springboot.controller;
+package desafio.itau_unibanco.springboot.controller;
 
-import desafio.itau.springboot.repository.StatistcsResponse;
-import desafio.itau.springboot.service.TransactionService;
+import desafio.itau_unibanco.springboot.repository.StatistcsResponse;
+import desafio.itau_unibanco.springboot.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

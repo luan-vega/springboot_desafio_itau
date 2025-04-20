@@ -1,5 +1,6 @@
 package desafio.itau.springboot.model;
 
+import desafio.itau_unibanco.springboot.model.Transaction;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
