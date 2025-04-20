@@ -1,4 +1,4 @@
-package desafio.itau.springboot.model;
+package desafio.itau_unibanco.springboot.model;
 
 import java.time.OffsetDateTime;
 

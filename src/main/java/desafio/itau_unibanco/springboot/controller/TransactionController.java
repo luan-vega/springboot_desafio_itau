@@ -1,8 +1,8 @@
-package desafio.itau.springboot.controller;
+package desafio.itau_unibanco.springboot.controller;
 
-import desafio.itau.springboot.model.Transaction;
-import desafio.itau.springboot.repository.TransactionRequest;
-import desafio.itau.springboot.service.TransactionService;
+import desafio.itau_unibanco.springboot.model.Transaction;
+import desafio.itau_unibanco.springboot.repository.TransactionRequest;
+import desafio.itau_unibanco.springboot.service.TransactionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

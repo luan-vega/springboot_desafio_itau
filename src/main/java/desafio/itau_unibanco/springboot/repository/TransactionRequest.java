@@ -1,4 +1,4 @@
-package desafio.itau.springboot.repository;
+package desafio.itau_unibanco.springboot.repository;
 
 import jakarta.validation.constraints.NotNull;
 
