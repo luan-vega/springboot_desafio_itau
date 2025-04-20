@@ -1,5 +1,7 @@
 package desafio.itau_unibanco.springboot.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import desafio.itau_unibanco.springboot.model.Transaction;
 import desafio.itau_unibanco.springboot.repository.TransactionRequest;
 import desafio.itau_unibanco.springboot.service.TransactionService;
@@ -13,6 +15,7 @@ import java.time.OffsetDateTime;
 @RequestMapping("/transacao")
 public class TransactionController {
 
+    private static final Logger log = LoggerFactory.getLogger(TransactionController.class);
     private final TransactionService transactionService;
 
     public TransactionController(TransactionService transactionService) {
@@ -20,10 +23,11 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> creataTransaction(@RequestBody TransactionRequest request) {
+    public ResponseEntity<Void> createdTransaction(@RequestBody TransactionRequest request) {
         if(request.getDataHora().isAfter(OffsetDateTime.now()) || request.getValor() <= 0) {
             return ResponseEntity.unprocessableEntity().build();
         }
+        log.info("Transaction created with sucsses");
         transactionService.addTransaction(new Transaction(request.getValor(), request.getDataHora()));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -31,6 +35,7 @@ public class TransactionController {
     @DeleteMapping
     public ResponseEntity<Void> clearTransactions() {
         transactionService.clearTransactions();
+        log.info("Transaction cleared with sucsses");
         return ResponseEntity.ok().build();
     }
 }
